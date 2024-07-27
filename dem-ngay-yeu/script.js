@@ -2,7 +2,7 @@ const main = document.body.querySelector('main');
 const hms = main.querySelector('.hms');
 const days = main.querySelector('.days');
 
-const time = {days: 99, hours: 23, minutes: 59, seconds: 45};
+const time = {days: 99, hours: 23, minutes: 59, seconds: 30};
 
 const updateTime = () => {
     if (++time.seconds < 60) return;
@@ -26,3 +26,13 @@ setInterval(() => {
     updateTime();
     renderTime();
 }, 1000);
+
+window.onclick = () => {
+    if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+    else if (document.documentElement.mozRequestFullScreen)
+        document.documentElement.mozRequestFullScreen();
+    else if (document.documentElement.webkitRequestFullscreen)
+        document.documentElement.webkitRequestFullscreen();
+    else if (document.documentElement.msRequestFullscreen)
+        document.documentElement.msRequestFullscreen();
+};
